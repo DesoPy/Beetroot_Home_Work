@@ -6,7 +6,7 @@ Create a simple function called favorite_movie, which takes a string containing 
 The function should then print “My favorite movie is named {name}”.
 """
 
-film_name = str(input('Now, my favorite movie is: '))
+film_name = input('Now, my favorite movie is: ')
 
 
 def favorite_movie(film_name: str):
