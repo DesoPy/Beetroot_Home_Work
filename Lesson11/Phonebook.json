@@ -1,0 +1,31 @@
+{
+    "Phonebook": [
+        {
+            "Full name": {
+                "First name": "John",
+                "Last name": "Smith"
+            },
+            "Phone number": "380987654321",
+            "E-mail": "example@gmail.com",
+            "City": "Dnipro"
+        },
+        {
+            "Full name": {
+                "First name": "Din",
+                "Last name": "Listen"
+            },
+            "Phone number": "440123456789",
+            "E-mail": "exam@gmail.com",
+            "City": "Kyiv"
+        },
+        {
+            "Full name": {
+                "First name": "Din",
+                "Last name": "Listen"
+            },
+            "Phone number": "440123456798",
+            "E-mail": "exam@gmail.com",
+            "City": "Kyiv"
+        }
+    ]
+}
