@@ -2,12 +2,12 @@
     "Phonebook": [
         {
             "Full name": {
-                "First name": "John",
-                "Last name": "Smith"
+                "First name": "Sdfsf",
+                "Last name": "Sdfsdf"
             },
-            "Phone number": "380987654321",
-            "E-mail": "example@gmail.com",
-            "City": "Dnipro"
+            "Phone number": "123456789012",
+            "E-mail": "sdfsdf",
+            "City": "Sdfsdf"
         },
         {
             "Full name": {
@@ -26,6 +26,24 @@
             "Phone number": "440123456798",
             "E-mail": "exam@gmail.com",
             "City": "Kyiv"
+        },
+        {
+            "Full name": {
+                "First name": "Ewrwe",
+                "Last name": "Wrwer"
+            },
+            "Phone number": "012345678902",
+            "E-mail": "werwre@sfdf",
+            "City": "Werwrwer"
+        },
+        {
+            "Full name": {
+                "First name": "Test2323",
+                "Last name": "Testsd342432"
+            },
+            "Phone number": "852456971302",
+            "E-mail": "sdfsfsa@gsdgsdfg",
+            "City": "City323423"
         }
     ]
 }

@@ -50,7 +50,7 @@ where `i` goes from 1 to 10 and `j` is corresponding to `i` squared.
 """
 
 
-u_list =[]
+u_list = []
 
 for i in range(1, 11):
     a_tuple = (i, i * i)

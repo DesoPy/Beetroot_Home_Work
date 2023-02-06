@@ -58,19 +58,34 @@ def city_enter() -> str:
     return enter_city
 
 
-def creat_data_entries() -> dict:
+def creat_data_entries(numb: str) -> str:
     """
-    create dict with data, which was entered user
+    Update a record for a given telephone number
+    :param numb: entered phone number for search
     :return:
     """
-    user_dict = {'Full name': {'First name': ' ', 'Last name': ' '},
-                 'Phone number': ' ', 'E-mail': ' ', 'City': ' '}
-    user_dict['Full name']['First name'] = first_name_enter()
-    user_dict['Full name']['Last name'] = last_name_enter()
-    user_dict['Phone number'] = phone_number_enter()
-    user_dict['E-mail'] = email_enter()
-    user_dict['City'] = city_enter()
-    return user_dict
+    with open('Phonebook.json', 'r') as file:
+        data = json.load(file)
+        list_data = data['Phonebook']
+        add_list = {'Full name': {'First name': ' ', 'Last name': ' '}, 'Phone number': ' ', 'E-mail': ' ', 'City': ' '}
+        if len(numb) == 12 and numb.isdigit():
+            add_list['Full name']['First name'] = first_name_enter()
+            add_list['Full name']['Last name'] = last_name_enter()
+            add_list['Phone number'] = numb
+            add_list['E-mail'] = email_enter()
+            add_list['City'] = city_enter()
+            list_data.append(add_list)
+            with open('Phonebook.json', 'w') as file:
+                json.dump(data, file, indent=4)
+        elif len(numb) < 12:
+            output = 'You have entered less than 12 digits'
+            return output
+        elif len(numb) > 12:
+            output = 'You have entered more than 12 digits'
+            return output
+        else:
+            output = 'You haven\'t entered correct number'
+            return output
 
 
 def search_full_name(fn: str, ln: str) -> str:
@@ -268,6 +283,14 @@ def user_choose():
         if choose.lower() in ['exit']:
             print('You exit from Phonebook')
             break
+        elif choose.lower() == 'add':
+            pn_add = phone_number_enter()
+            return_pn_add = creat_data_entries(pn_add)
+            if return_pn_add is None:
+                return_pn_add = 'User\'s data add to Phonebook'
+                return return_pn_add
+            else:
+                return return_pn_add
         elif choose.lower() == 'first name':
             fn = first_name_enter()
             return_fn = search_first_name(fn)
