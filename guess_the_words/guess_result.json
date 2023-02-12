@@ -17,6 +17,24 @@
                 "Count tries": 4,
                 "Score points": 72.5
             }
+        },
+        {
+            "Date time game": "2023-02-12 21:44:54.202875",
+            "Player name": "Ntesd",
+            "Game result": "Lose",
+            "Score": {
+                "Count tries": 6,
+                "Score points": 1.25
+            }
+        },
+        {
+            "Date time game": "2023-02-12 21:47:04.062335",
+            "Player name": "Erer",
+            "Game result": "Lose",
+            "Score": {
+                "Count tries": 6,
+                "Score points": 0.5
+            }
         }
     ]
 }

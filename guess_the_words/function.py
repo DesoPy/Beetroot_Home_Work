@@ -2,23 +2,15 @@ import json
 import string
 import random
 import datetime
+from typing import Optional
 
 
 def create_list():
     with open('words.txt', 'r') as file:
         list_words = file.readlines()
         for posit, word in enumerate(list_words):
-            list_words[posit] = word.strip()
+            list_words[posit] = word.strip().lower()
     return list_words
-
-
-def val_count(player_letters: list) -> list:
-    if len(player_letters) > 5:
-        print('You enter word more then 5 letters')
-        return True
-    elif len(player_letters) < 5:
-        print('You enter word less then 5 letters')
-        return True
 
 
 def rules_for_user():
@@ -51,36 +43,23 @@ def search_result(name_player: str) -> str:
 
 
 def choose_loop(choose_user: str, player_name: str) -> str:
-    while True:
-        if choose_user == 'rules'.lower():
-            rules = rules_for_user()
-            print(rules)
-            break
-        elif choose_user == 'stop'.lower():
-            print('Game was stopped')
-            break
-        elif choose_user == 'start'.lower():
-            body_loop(player_name)
-            break
-        elif choose_user == 'result'.lower():
-            name_player = input('Enter player name: ').title()
-            result_search = search_result(name_player)
-            if result_search == []:
-                print('Player not defined. Try another name!')
-                break
-            else:
-                print(result_search)
-                break
-
+    if choose_user == 'rules'.lower():
+        rules = rules_for_user()
+        print(rules)
+    elif choose_user == 'stop'.lower():
+        print('Game was stopped')
+    elif choose_user == 'start'.lower():
+        body_loop(player_name)
+    elif choose_user == 'result'.lower():
+        name_player = input('Enter player name: ').title()
+        result_search = search_result(name_player)
+        if not len(result_search):
+            print('Player not defined. Try another name!')
         else:
-            print('Incorrect input.')
-            break
+            print(result_search)
 
-
-def val_alpha(player_letters: list) -> list:
-    if set(player_letters) - set(string.ascii_lowercase):
-        print("Unsupported symbols, use letters instead")
-        return True
+    else:
+        print('Incorrect input.')
 
 
 def result_add(count_dict):
@@ -103,10 +82,15 @@ def body_loop(player_name):
     while i < 6:
         player_letters = list(input(f'Attempt {i + 1} of 6: ').lower())
 
-        if val_alpha(player_letters):
+        if set(player_letters) - set(string.ascii_lowercase):
+            print("Unsupported symbols, use letters instead")
             continue
 
-        if val_count(player_letters):
+        if len(player_letters) > 5:
+            print('You enter word more then 5 letters')
+            continue
+        elif len(player_letters) < 5:
+            print('You enter word less then 5 letters')
             continue
 
         target_letters = list(target_word)
@@ -132,13 +116,12 @@ def body_loop(player_name):
                                               + (player_letters.count('!') * 0.5) + (player_letters.count('?') * 0.25)
         count_dict['Score']['Count tries'] = 1 + i
 
-        target_letters = [i for i in target_letters if i]  # Filter target letter
         print(player_letters)
 
         if player_letters == ['!'] * 5:
             count_dict['Game result'] = 'Won'
             count_dict['Date time game'] = str(datetime.datetime.now())
-            if i + 1 == 1:
+            if i == 0:
                 count_dict['Score']['Score points'] = 100
                 print(f'Congrats, you\'ve won.The guessed word is "{target_word}" '
                       f'and your score result is {count_dict["Score"]["Score points"]} points')
