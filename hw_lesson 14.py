@@ -29,7 +29,7 @@ Then create a method `human_age` which returns the dog’s age in human equivale
 """
 
 
-class Dog:
+class Dog():
 
     age_factor = 7
 
