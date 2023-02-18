@@ -93,12 +93,12 @@ class TVController():
 
     def previous_channel(self):
         if TVController.now_current_channel == self.channels[0]:
-            TVController.now_current_channel = self.channels[-1]
+            self.now_current_channel = self.channels[-1]
             return self.channels[-1]
         else:
             cur_ind = self.channels.index(TVController.now_current_channel)
             next_ind = cur_ind - 1
-            TVController.now_current_channel = self.channels[next_ind]
+            self.now_current_channel = self.channels[next_ind]
             return self.channels[next_ind]
 
     def current_channel(self):
