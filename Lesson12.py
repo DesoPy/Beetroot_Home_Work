@@ -55,12 +55,10 @@ Otherwise, return the result of the second one
 
 
 def choose_func(nums: list, func1, func2):
-    if reduce(lambda x, y: abs(x + y), nums) == reduce(lambda x, y: x + y, nums):
-        return_func = func1(nums)
-        return return_func
-    elif reduce(lambda x, y: abs(x + y), nums) > reduce(lambda x, y: x + y, nums):
-        return_func = func2(nums)
-        return return_func
+    if all(map(lambda x: x >= 0, nums)):
+        return func1(nums)
+
+    return func2(nums)
 
 
 # Assertions
