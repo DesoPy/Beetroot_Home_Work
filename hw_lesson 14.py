@@ -37,7 +37,7 @@ class Dog():
         self.dog_age = dog_age
 
     def human_age(self):
-        return Dog.age_factor * self.dog_age
+        return self.age_factor * self.dog_age
 
 
 """
@@ -70,63 +70,62 @@ class TVController():
         TVController.now_current_channel = self.channels[0]
 
     def first_channel(self):
-        TVController.now_current_channel = self.channels[0]
-        print(self.channels[0])
+        self.now_current_channel = self.channels[0]
+        return self.channels[0]
 
     def last_channel(self):
-        TVController.now_current_channel = self.channels[-1]
-        print(self.channels[-1])
+        self.now_current_channel = self.channels[-1]
+        return self.channels[-1]
 
     def turn_channel(self, i):
-        TVController.now_current_channel = self.channels[i-1]
-        print(self.channels[i-1])
+        self.now_current_channel = self.channels[i-1]
+        return self.channels[i-1]
 
     def next_channel(self):
-        if TVController.now_current_channel == self.channels[-1]:
-            TVController.now_current_channel = self.channels[0]
-            print(self.channels[0])
+        if self.now_current_channel == self.channels[-1]:
+            self.now_current_channel = self.channels[0]
+            return self.channels[0]
         else:
             cur_ind = self.channels.index(TVController.now_current_channel)
             next_ind = cur_ind + 1
             TVController.now_current_channel = self.channels[next_ind]
-            print(self.channels[next_ind])
+            return self.channels[next_ind]
 
     def previous_channel(self):
         if TVController.now_current_channel == self.channels[0]:
             TVController.now_current_channel = self.channels[-1]
-            print(self.channels[-1])
+            return self.channels[-1]
         else:
             cur_ind = self.channels.index(TVController.now_current_channel)
             next_ind = cur_ind - 1
             TVController.now_current_channel = self.channels[next_ind]
-            print(self.channels[next_ind])
+            return self.channels[next_ind]
 
     def current_channel(self):
-        print(TVController.now_current_channel)
+        return self.now_current_channel
 
     def is_exist(self, input_value):
         if isinstance(input_value, int):
-            if input_value <= len(self.channels) + 1:
-                print('Yes')
+            if input_value < len(self.channels) + 1:
+                return 'Yes'
             else:
-                print('No')
+                return 'No'
         elif isinstance(input_value, str):
             if input_value in self.channels:
-                print('Yes')
+                return 'Yes'
             else:
-                print('No')
-        else:
-            print('Unsupported input')
+                return 'No'
+
 
 CHANNELS = ["BBC", "Discovery", "TV1000"]
 
 controller = TVController(CHANNELS)
 
-controller.first_channel()
-controller.last_channel()
-controller.turn_channel(1)
-print(controller.current_channel)
-controller.next_channel()
-controller.previous_channel()
-controller.current_channel()
-controller.is_exist(4)
+
+
+assert controller.first_channel() == "BBC"
+assert controller.next_channel() == "Discovery"
+assert controller.previous_channel() == "BBC"
+assert controller.current_channel() == "BBC"
+assert controller.is_exist(4) == "No"
+assert controller.is_exist("BBC") == "Yes"
