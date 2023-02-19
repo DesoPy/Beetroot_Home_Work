@@ -1,4 +1,3 @@
-import inspect
 from functools import wraps
 
 """
@@ -10,15 +9,10 @@ NOTE! It should print the function, not the result of its execution!
 
 def logger(func):
     def wrap():
-        code_func = inspect.getsource(func)
 
-        split_for_return = code_func.split('return')
+        return func
 
-        give_code = split_for_return[-1]
-
-        return give_code
-
-    return print(wrap())
+    return wrap()
 
 
 @logger
@@ -29,6 +23,11 @@ def add(x, y):
 @logger
 def square_all(*args):
     return [arg ** 2 for arg in args]
+
+
+assert square_all(1, 2, 3) == [1, 4, 9]
+
+assert add(2, 3) == 5
 
 
 """
@@ -80,21 +79,20 @@ otherwise, return the result.
 
 
 def arg_rules(type_: type, max_length: int, contains: list):
-    def wrap_func(func):
-        @wrap_func(func)
-        def wrapper(*args, **kwargs):
-            name: str = func(*args, **kwargs)
-
-            new_str = set(''.join(contains))
-
-            if type(name) == type_ and len(name) < max_length and new_str.issubset(set(name)):
-                return True
-            else:
+    def real_decorator(function):
+        def wrapped(*args):
+            if type(*args) != type_:
+                print(f'The parameter type does not match the specified type - "{type_.__name__}"')
                 return False
-
-        return wrapper
-
-    return wrap_func
+            elif len(*args) > max_length:
+                print(f'The length of the passed parameter is longer than {max_length} symbols')
+                return False
+            elif set(''.join(contains)).issubset(set(args)):
+                print(f'The list of characters that the argument must contain must be passed as "{contains}"')
+                return False
+            return function(*args)
+        return wrapped
+    return real_decorator
 
 
 @arg_rules(type_=str, max_length=15, contains=['05', '@'])
