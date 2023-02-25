@@ -1,0 +1,22 @@
+{
+    "Result of games": [
+        {
+            "Date time game": "2023-02-07 15:38:36.726872",
+            "Player name": "Serhii",
+            "Game result": "Won",
+            "Score": {
+                "Count tries": 1,
+                "Score points": 100
+            }
+        },
+        {
+            "Date time game": "2023-02-07 16:33:33.675807",
+            "Player name": "Serhii",
+            "Game result": "Won",
+            "Score": {
+                "Count tries": 4,
+                "Score points": 72.5
+            }
+        }
+    ]
+}

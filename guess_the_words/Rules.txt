@@ -1,0 +1,15 @@
+Rules of the game.
+You have 6 attempts to guess the five letters word.
+When trying to guess a word, the program displays hints in the following form:
+- if the letter does not appear in the puzzled word, a dot (.) is placed in its place;
+- if the letter is found, but in another place - a question mark (?);
+- if there is a letter, it is in the correct position - an exclamation mark (!).
+The number of "guessed letters" (ie the total number of '?' and '!')
+does not exceed the actual number of re-entered letters in the guessed word.
+
+Points are awarded in the game under the following conditions:
+1. If the word is guessed the first time, the player gets 100 points.
+2. Each subsequent attempt reduces the maximum number of points by 10 (that is, if the word is guessed in 6 attempts,
+the player receives 50 points)
+3. Points are additionally awarded, taking into account correctly entered guessed letters with a coefficient
+of 0.5 if the letter is guessed correctly and is in its place and 0.25 if the letter is guessed but is in another place.
