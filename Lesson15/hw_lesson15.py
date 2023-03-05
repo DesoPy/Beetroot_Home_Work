@@ -119,52 +119,66 @@ get_product_info(product_name) - returns a tuple with product name and amount of
 
 class Product:
 
-    c = 0
-
     def __init__(self, types: str, name: str, price: float):
         self.types = types
         self.name = name
         self.price = price
-        self.__class__.c += 1
+        self.count = 0
 
-    def __str__(self):
-        return self.types + ', ' + self.name + ', ' + str(self.price)
+    def __repr__(self):
+        return f'{self.types}, {self.name}, {str(self.price)}, {self.count})'
 
 
 class ProductStore:
 
     def __init__(self):
-        self.goods = dict()
+        self.list_of_products = []
+        self.price_for_store = 30
+        self.income = 0
 
     def add(self, product, amount):
-        self.goods[product.name] = [product.types, product.name, round(product.price * 1.3, 2), amount]
-        return tuple(self.goods[product.name])
+        if amount % 1 != 0:
+            raise ValueError('Error')
+        elif amount <= 0:
+            raise ValueError('Error')
+        else:
+            product.price *= 1 + (self.price_for_store / 100)
+            product.amount = amount
+            self.list_of_products.append(product)
 
-    def set_discount(self, identifier, percent):
-        a = self.goods[identifier]
-        a.append(f'{percent} %')
-        self.goods.update({self.goods.get(self, identifier): a})
-        return self.goods
+    def set_discount(self, identifier, percent, identifier_type='name'):
+        if identifier_type == 'name':
+            for product in self.list_of_products:
+                if product.name == identifier:
+                    product.price -= product.price * (percent/100)
+        elif identifier_type == 'type':
+            for product in self.list_of_products:
+                if product.types == identifier:
+                    product.price *= product.price * (percent/100)
+        else:
+            raise ValueError('No such identifier')
 
     def sell(self, product_name, amount):
-        a = self.goods[product_name]
-        a[3] = a[3] - amount
-        self.goods.update({self.goods.get(self, product_name): a})
-        return (product_name, self.goods[product_name])
+        for product in self.list_of_products:
+            if product.name == product_name:
+                if product.amount >= amount:
+                    product.amount -= amount
+                    self.income += amount * product.price
+                else:
+                    raise ValueError('Error')
+        result_list_of_products = [product for product in self.list_of_products if product.amount != 0]
+        self.list_of_products = result_list_of_products
 
-    @staticmethod
-    def get_income(cls):
-        return cls.c
+    def get_income(self):
+        return self.income
 
     def get_all_products(self):
-        for i in self.goods.keys():
-            return i
+        return self.list_of_products
 
     def get_product_info(self, product_name):
-        return (product_name, self.goods[product_name][3])
-
-    def __str__(self):
-        return str(self.goods)
+        for product in self.list_of_products:
+            if product.name == product_name:
+                return product.name, product.amount
 
 
 p = Product('Sport', 'Football T-Shirt', 100)
@@ -196,12 +210,16 @@ class CustomException(Exception):
 
     def __init__(self, msg):
         self.msg = super().__init__()
-        error_message = msg.__name__
-        text_error = msg.__doc__
-        date_error = datetime.now()
-        with open('../Lesson15/logs.txt', 'a') as file:
-            file.write(f'Date error: {date_error}\n name error: {error_message}\n text error: {text_error}\n')
-            file.write('#' * 100 + '\n')
+        self.error_message = msg.__name__
+        self.text_error = msg.__doc__
+        self.date_error = datetime.now()
+        try:
+            raise CustomException('message')
+        except:
+            with open('../Lesson15/logs.txt', 'a') as file:
+                file.write(f'Date error: {self.date_error}\n name error: {self.error_message}\n '
+                           f'text error: {self.text_error}\n')
+                file.write('#' * 100 + '\n')
 
 
 assert CustomException(TypeError)

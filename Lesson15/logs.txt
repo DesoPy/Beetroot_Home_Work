@@ -54,3 +54,19 @@ Date error: 2023-02-18 19:32:57.039080
  name error: TypeError
  text error: Inappropriate argument type.
 ####################################################################################################
+Date error: 2023-03-05 17:20:11.363451
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-03-05 17:59:21.627873
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-03-05 18:06:35.009325
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-03-05 18:06:43.070398
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
