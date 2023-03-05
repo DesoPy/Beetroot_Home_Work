@@ -1,0 +1,72 @@
+Date error: 2023-02-17 22:49:42.384782
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-17 22:49:47.019346
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-17 22:50:02.450736
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-17 22:50:06.481825
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 15:06:37.917246
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:15:12.235567
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:18:44.360377
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:23:26.720237
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:29:41.453191
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:30:08.978129
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:30:29.390668
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:31:05.212384
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:31:40.826321
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-02-18 19:32:57.039080
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-03-05 17:20:11.363451
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-03-05 17:59:21.627873
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-03-05 18:06:35.009325
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
+Date error: 2023-03-05 18:06:43.070398
+ name error: TypeError
+ text error: Inappropriate argument type.
+####################################################################################################
