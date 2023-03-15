@@ -114,6 +114,7 @@ class Library:
         book = Book(name, year, author)
         self.books.append(book)
         author.books.append(book.name)
+        self.authors.append(author)
         return book
 
     def group_by_author(self, author: Author):
