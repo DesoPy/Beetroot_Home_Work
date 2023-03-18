@@ -31,18 +31,19 @@ Write a Python program to access a function inside a function (Tips: use functio
 """
 
 
-def first_func():
+def first_func(a=0, b=0):
     print('This is first function')
+    return a + b
 
 
 def second_func():
     print('This is second function')
-    return first_func
+    return first_func()
 
 
 return_func = second_func()
 
-return_func()
+second_func()
 
 
 """

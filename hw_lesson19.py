@@ -16,12 +16,13 @@ from Lesson12 import first_func, second_func
 class Task1TestCase(unittest.TestCase):
 
     def test_Lesson12_first_func(self):
-        full = first_func()
-        self.assertEqual(full, print('This is first function'))
+        full = first_func(5)
+        self.assertEqual(full, 5)
 
     def test_Lesson12_second_func(self):
-        full = second_func()
-        self.assertEquals(full, print('This is second function'), print('This is first function'))
+        full1 = first_func(1, 3)
+        full2 = second_func()
+        self.assertEquals(full1, 4)
 
 
 if __name__ == '__main__':
@@ -42,16 +43,16 @@ class TestPhonebookFunction(unittest.TestCase):
 
     def test_first_name_enter(self):
         func = func_for_task2.first_name_enter
-        self.assertTrue(func, True)
+        self.assertTrue(func)
 
     def test_create_phonebook(self):
         func = func_for_task2.create_phonebook()
-        self.assertIsNone(func, None)
+        self.assertIsNone(func)
 
     def test_creat_data_entries(self):
         numb = '12346852585856456454654'
         func = func_for_task2.creat_data_entries(numb)
-        self.assertIsNotNone(func, not None)
+        self.assertIsNotNone(func)
 
     def test_search_on_phone(self):
         numb = '12345678'
@@ -71,7 +72,7 @@ class TestPhonebookFunction(unittest.TestCase):
     def test_del_on_phone(self):
         numb = '123456789123'
         func = func_for_task2.del_on_phone(numb)
-        self.assertIsNone(func, None)
+        self.assertIsNone(func)
 
     def test_user_choose(self):
         original_input = mock.builtins.input
