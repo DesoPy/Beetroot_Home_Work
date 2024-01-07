@@ -32,7 +32,7 @@ server_socket.listen(6)
 print(f'Server: {HOST}:{PORT}')
 
 while True:
-    connection,address = server_socket.accept()
+    connection, address = server_socket.accept()
     thread = threading.Thread(target=client_thread, args=(connection,))
     thread.start()
     thread_counter += 1
