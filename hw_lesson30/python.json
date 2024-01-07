@@ -1,0 +1,54 @@
+{
+    "data": [
+        {
+            "Author": "barrycarter",
+            "Comment": "Update your timezone files. In Linux, they're in /usr/share/zoneinfo but there should be a way to do this for any platform.",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "spinwizard69",
+            "Comment": "&gt;By nature python will struggle with large amounts of data in memory, but it makes up for that in other ways that other languages couldn't balance out as well \n\nThat is more myth than anything.   Just because a language can handle large data sets better than Python, doesn't mean they also fail with other tasks a developer may need.\n\nWhat is more interesting is why Python developers get their panties in a twist when people suggest that just maybe there are better languages for a specific project than Python.   Python is good enough right now that it doesn't need to be able to do everything!   Leave those niche development projects to other languages is all I'm saying and focus on Pythons strengths.",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "BossOfTheGame",
+            "Comment": "Big brain stuff right here. It's pretty to achieve this. Monkey patch builtins.\\_\\_import\\_\\_ to raise an exception.\n\n    # The last import that will ever happen\nimport builtins\ndef improved_import(name, globals=None, locals=None, fromlist=(), level=0):\n    \"\"\"\n    A lot of bugs come from people using code they don't understand.\n    To prevent this all imports are now disabled.\n    \"\"\"\n    raise ImportError(\"You've reached the world\u2019s edge, none but devils play past here.\")\nbuiltins.__import__ = improved_import",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "SadisticRobot05",
+            "Comment": "As an official weeb i can confirm that the weebs are pleased.",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "aprotono",
+            "Comment": "Since you are not sure what you are learning for, start with python.",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "Goldziher",
+            "Comment": "Cheers",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "DigThatData",
+            "Comment": "i want to commend you for this decision. I know it can be tough to rebrand like this after developing name recognition, but it will significantly reduce confusion between this and starlette and make it easier for users to find what they're looking for.",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "millerbest",
+            "Comment": "If you want to purely work with web app, learn JavaScript, otherwise python",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "assumptionkrebs1990",
+            "Comment": "This is entirely by ChatGPT, right?",
+            "Subreddit": "Python"
+        },
+        {
+            "Author": "Wrong_College1347",
+            "Comment": "Look here:\nhttps://automatetheboringstuff.com",
+            "Subreddit": "Python"
+        }
+    ]
+}
